@@ -10,20 +10,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var number:Int = 0
         var tvNumber = this.findViewById<TextView>(R.id.tvNumber)
         var mais = this.findViewById<Button>(R.id.btSoma)
+        var menos = this.findViewById<Button>(R.id.btMenos)
         var stop:Int = 10
+        var number:Int = 0
 
         mais.setOnClickListener {
             if (number < stop){
                 number ++
                 tvNumber.text = number.toString()
-                }else{
-                    tvNumber.text = 0.toString()
-                    val mIntent = intent
-                    finish()
-                    startActivity(mIntent)
+                }
+        }
+        menos.setOnClickListener {
+            if (number > 0){
+                number --
+                tvNumber.text = number.toString()
             }
         }
     }
